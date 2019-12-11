@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity(), TextWatcher {
     private var TextViewAge : TextView?=null
 
     private var name : String? = null
-    private var age = 0
+    private var age : String? = null
     // en kotlin no es necesario que deblare el tipo de variable... basta con ponerle el dato y kotlin interpretara que tipo de dato es
     // la unica diferencia es que se pone = para poner el dato , caso contrario se pone :
 
@@ -53,10 +53,17 @@ class MainActivity : AppCompatActivity(), TextWatcher {
     override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
         //Toast.makeText(this, s.toString()+"_"+start.toString()+"_"+before.toString()+"_"+count.toString() , Toast.LENGTH_SHORT).show()
         name = EditName?.text.toString()
-        age = Integer.valueOf(EditAge?.text.toString())
+        age = EditAge?.text.toString()
 
-        textView_Name?.text = name// podemos obtener datos o asignar datos
-        textView_Age?.text = age.toString()
+        if(name != "")
+        {
+            textView_Name?.text = name// podemos obtener datos o asignar datos
+        }
+        if(age != "")
+        {
+            textView_Age?.text = age
+        }
+
 
     }
 }
