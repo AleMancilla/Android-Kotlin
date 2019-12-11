@@ -66,5 +66,13 @@
                 android:layout_weight="1" />
         </LinearLayout>
 
+        <Button
+            android:id="@+id/button_ejecutar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="@string/Button"
+            android:textColor="@android:color/white" />
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
