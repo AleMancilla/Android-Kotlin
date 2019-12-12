@@ -82,17 +82,32 @@ class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
     ////////////////////funciones///////////////////////////////////////////
     private fun operacion()
     {
-        name = EditName?.text.toString()
-        age = EditAge?.text.toString()
+        //name = EditName?.text.toString()
+        //age = EditAge?.text.toString()
+//
+        //if(name != "")
+        //{
+        //    textView_Name?.text = name// podemos obtener datos o asignar datos
+        //}
+        //if(age != "")
+        //{
+        //    textView_Age?.text = age
+        //}
 
-        if(name != "")
-        {
-            textView_Name?.text = name// podemos obtener datos o asignar datos
-        }
-        if(age != "")
-        {
-            textView_Age?.text = age
-        }
+        //var cadena  : String = ""
+        //var entero  : Int = 0
+        //var doble   : Double = 0.0
+        //var valor   : Boolean = true
+        //var char    : Char = 'c'
+        //var f       : Float = 5.0f
+
+/////////// es igual a //////////
+        
+        var cadena   = ""
+        var entero   = 0
+        var doble    = 0.0
+        var valor    = true
+        var char     = 'c'
+        var f        = 5.0f
     }
-
 }
