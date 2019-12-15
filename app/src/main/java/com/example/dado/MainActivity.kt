@@ -3,16 +3,15 @@ package com.example.dado
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
+import android.text.InputType
 import android.text.TextWatcher
 import android.view.View
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.annotation.IntegerRes
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
+class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener,
+    CompoundButton.OnCheckedChangeListener {
 
 
 
@@ -29,22 +28,33 @@ class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
 
     private var boton : Button? = null
 
+    private var rb_M : RadioButton? = null
+    private var rb_F : RadioButton? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        EditName = findViewById(R.id.editText_nombre) as EditText
-        EditAge = findViewById(R.id.editText_edad) as EditText
-        TextViewName = findViewById(R.id.textView_Name) as TextView
-        TextViewAge = findViewById(R.id.textView_Age) as TextView
+        EditName = findViewById<EditText>(R.id.editText_nombre) // as EditText
+        EditAge = findViewById<EditText>(R.id.editText_edad) //as EditText
+        TextViewName = findViewById<TextView>(R.id.textView_Name) //as TextView
+        TextViewAge = findViewById<TextView>(R.id.textView_Age) //as TextView
 
-        boton = findViewById(R.id.button_ejecutar) as Button
+        boton = findViewById<Button>(R.id.button_ejecutar)
+
+        rb_M = findViewById<RadioButton>(R.id.radioButton_M)
+        rb_F = findViewById<RadioButton>(R.id.radioButton_F)
+
+        rb_M!!.setOnCheckedChangeListener(this)
+        rb_F!!.setOnCheckedChangeListener(this)
 
         boton!!.setOnClickListener(this) // recibe  un objetp
 
         // evento interface Text Wacher.. textChangedListener .. captura datos de donde lo asignemos
         EditName!!.addTextChangedListener(this) // con la doble admiracion se asegura que esa variable no contiene nulo, caso contrario da error
         EditAge!!.addTextChangedListener(this) // con la interrogacion dice que podra recibir un dato nulo pero no necesariamente
+
+        //EditName!!.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_FLAG_CAP_CHARACTER
 
     }
 
@@ -71,8 +81,15 @@ class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
        // {
        //     textView_Age?.text = age
        // }
-
-
+        name = EditName?.text.toString()
+        if(name.equals("")?:(""===null))
+        {
+            EditName!!.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_FLAG_CAP_CHARACTERS
+        }
+        else
+        {
+            EditName!!.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_NORMAL
+        }
     }
 
     ////////////////////////////Evento On Click///////////////////////////////////////////
@@ -82,17 +99,25 @@ class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
     ////////////////////funciones///////////////////////////////////////////
     private fun operacion()
     {
-        //name = EditName?.text.toString()
-        //age = EditAge?.text.toString()
+        name = EditName?.text.toString()
+        age = EditAge?.text.toString()
 //
-        //if(name != "")
-        //{
-        //    textView_Name?.text = name// podemos obtener datos o asignar datos
-        //}
-        //if(age != "")
-        //{
-        //    textView_Age?.text = age
-        //}
+        if(name.equals("")?:(""===null))
+        {
+            TextViewName!!.requestFocus()
+        }
+        else
+        {
+            TextViewName?.text = name// podemos obtener datos o asignar datos
+        }
+        if(age.equals("")?:(""===null))
+        {
+            TextViewAge!!.requestFocus()
+        }
+        else
+        {
+            TextViewAge?.text = age
+        }
 
         //var cadena  : String = ""
         //var entero  : Int = 0
@@ -102,12 +127,19 @@ class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
         //var f       : Float = 5.0f
 
 /////////// es igual a //////////
-        
-        var cadena   = ""
-        var entero   = 0
-        var doble    = 0.0
-        var valor    = true
-        var char     = 'c'
-        var f        = 5.0f
+
+        //var cadena   = ""
+        //var entero   = 0
+        //var doble    = 0.0
+        //var valor    = true
+        //var char     = 'c'
+        //var f        = 5.0f
+        //val d        = 4 // la diferencia entre val y var es que val es inmutable.. no puede cambiar si dato... es constante var es variable
     }
+
+    override fun onCheckedChanged(buttonView: CompoundButton?, isChecked: Boolean) {
+        Toast.makeText(this,"Se ha seleccionado una opcion",Toast.LENGTH_SHORT).show()
+    }
+
+
 }

@@ -66,6 +66,25 @@
                 android:layout_weight="1" />
         </LinearLayout>
 
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/radioButton_M"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/rb_femenino" />
+
+            <RadioButton
+                android:id="@+id/radioButton_F"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/rb_masculino" />
+        </RadioGroup>
+
         <Button
             android:id="@+id/button_ejecutar"
             android:layout_width="wrap_content"

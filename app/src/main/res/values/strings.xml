@@ -3,4 +3,6 @@
     <string name="txt_name">nombre</string>
     <string name="txt_edad">edad</string>
     <string name="Button">Ejecutar</string>
+    <string name="rb_masculino">MASCULINO</string>
+    <string name="rb_femenino">FEMENINO</string>
 </resources>
