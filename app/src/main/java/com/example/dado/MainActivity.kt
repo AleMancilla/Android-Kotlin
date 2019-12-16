@@ -47,8 +47,10 @@ class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener,
         rb_M = findViewById<RadioButton>(R.id.radioButton_M)
         rb_F = findViewById<RadioButton>(R.id.radioButton_F)
 
-        rb_M!!.setOnCheckedChangeListener(this)
-        rb_F!!.setOnCheckedChangeListener(this)
+        //rb_M!!.setOnCheckedChangeListener(this)
+        //rb_F!!.setOnCheckedChangeListener(this)
+        rb_M!!.setOnClickListener(this)
+        rb_F!!.setOnClickListener(this)
 
         boton!!.setOnClickListener(this) // recibe  un objetp
 
@@ -96,7 +98,13 @@ class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener,
 
     ////////////////////////////Evento On Click///////////////////////////////////////////
     override fun onClick(v: View?) { //con esto "v" podemos obtener los ID o elementos que estan generando el evento Onclick
-        operacion()
+        when(v!!.id)
+        {
+            R.id.button_ejecutar -> operacion()
+            R.id.radioButton_M -> Toast.makeText(this,"HOMBRE",Toast.LENGTH_SHORT).show()
+            R.id.radioButton_F -> Toast.makeText(this, "MUJER", Toast.LENGTH_SHORT).show()
+        }
+
     }
     ////////////////////funciones///////////////////////////////////////////
     private fun operacion()
@@ -156,8 +164,13 @@ class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener,
         //val d        = 4 // la diferencia entre val y var es que val es inmutable.. no puede cambiar si dato... es constante var es variable
     }
 
-    override fun onCheckedChanged(buttonView: CompoundButton?, isChecked: Boolean) {
-        Toast.makeText(this,"Se ha seleccionado una opcion",Toast.LENGTH_SHORT).show()
+    override fun onCheckedChanged(buttonView: CompoundButton?, isChecked: Boolean) { //buttonView puedo obtener el id del radio buton
+        //when(buttonView!!.id)
+        //{
+        //    R.id.radioButton_M -> if(isChecked) Toast.makeText(this,"Se ha seleccionado MASCULINO",Toast.LENGTH_SHORT).show()
+        //    R.id.radioButton_F -> if(isChecked) Toast.makeText(this,"Se ha seleccionado FEMENINO",Toast.LENGTH_SHORT).show()
+        //}
+
     }
 
 

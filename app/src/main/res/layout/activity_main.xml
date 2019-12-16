@@ -76,13 +76,13 @@
                 android:id="@+id/radioButton_M"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/rb_femenino" />
+                android:text="@string/rb_masculino" />
 
             <RadioButton
                 android:id="@+id/radioButton_F"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/rb_masculino" />
+                android:text="@string/rb_femenino" />
         </RadioGroup>
 
         <Button
