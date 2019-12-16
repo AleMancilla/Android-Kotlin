@@ -31,6 +31,8 @@ class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener,
     private var rb_M : RadioButton? = null
     private var rb_F : RadioButton? = null
 
+    private var mensaje =""
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -99,25 +101,42 @@ class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener,
     ////////////////////funciones///////////////////////////////////////////
     private fun operacion()
     {
-        name = EditName?.text.toString()
-        age = EditAge?.text.toString()
+        var valor = "Kotlin"
+        when(valor) // similar a un Switch case puede ser utilizado para distintos tipos de datos
+        {
+            "kotlin" ->
+                mensaje = valor
+            "java" ->
+                mensaje = valor
+        }
+
+        when // similar a un Switch case puede ser utilizado para distintos tipos de datos
+        {
+            1 > 0 ->
+                mensaje = valor
+            2 < 0 ->
+                mensaje = valor
+            else -> mensaje = "no es correcto"
+        }
+        //name = EditName?.text.toString()
+        //age = EditAge?.text.toString()
 //
-        if(name.equals("")?:(""===null))
-        {
-            TextViewName!!.requestFocus()
-        }
-        else
-        {
-            TextViewName?.text = name// podemos obtener datos o asignar datos
-        }
-        if(age.equals("")?:(""===null))
-        {
-            TextViewAge!!.requestFocus()
-        }
-        else
-        {
-            TextViewAge?.text = age
-        }
+        //if(name.equals("")?:(""===null))
+        //{
+        //    TextViewName!!.requestFocus()
+        //}
+        //else
+        //{
+        //    TextViewName?.text = name// podemos obtener datos o asignar datos
+        //}
+        //if(age.equals("")?:(""===null))
+        //{
+        //    TextViewAge!!.requestFocus()
+        //}
+        //else
+        //{
+        //    TextViewAge?.text = age
+        //}
 
         //var cadena  : String = ""
         //var entero  : Int = 0
